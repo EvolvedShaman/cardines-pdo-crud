@@ -76,7 +76,7 @@
                     }
                     
                     // Close connection
-                    unset($pdo);
+                    unset($pdo);  
                     ?>
                 </div>
             </div>        
