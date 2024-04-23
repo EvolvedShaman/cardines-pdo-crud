@@ -3,54 +3,54 @@
 require_once "../db/config.php";
  
 // Define variables and initialize with empty values
-$product_name = $product_details = $product_retail_price = "";
-$product_name_err = $product_details_err = $product_retail_price_err = "";
+$product = $product_details = $price = "";
+$product_err = $product_details_err = $price_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    // Validate name
-    $input_name = trim($_POST["product_name"]);
-    if(empty($input_name)){
-        $product_name_err = "Please enter a name.";
-    } elseif(!filter_var($input_name, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $product_name_err = "Please enter a valid name.";
+    // Validate product
+    $input_product = trim($_POST["product"]);
+    if(empty($input_product)){
+        $product_err = "Please enter a product.";
+    } elseif(!filter_var($input_product, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+        $product_err = "Please enter a valid product.";
     } else{
-        $product_name = $input_name;
+        $product = $input_product;
     }
     
-    // Validate address
+    // Validate product_details
     $input_product_details = trim($_POST["product_details"]);
     if(empty($input_product_details)){
-        $product_details_err = "Please enter product details.";     
+        $product_details_err = "Please enter product_details.";     
     } else{
         $product_details = $input_product_details;
     }
     
-    // Validate salary
-    $input_product_retail_price = trim($_POST["product_retail_price"]);
-    if(empty($input_product_retail_price)){
-        $product_retail_price_err = "Please enter the salary amount.";     
-    } elseif(!ctype_digit($input_product_retail_price)){
-        $product_retail_price_err = "Please enter a positive integer value.";
+    // Validate price
+    $input_price = trim($_POST["price"]);
+    if(empty($input_price)){
+        $price_err = "Please enter the price.";     
+    } elseif(!ctype_digit($input_price)){
+        $price_err = "Please enter a positive integer value.";
     } else{
-        $product_retail_price = $input_product_retail_price;
+        $price = $input_price;
     }
     
     // Check input errors before inserting in database
-    if(empty($product_name_err) && empty($product_details_err) && empty($product_retail_price_err)){
+    if(empty($product_err) && empty($product_details_err) && empty($price_err)){
         // Prepare an insert statement
-        $sql = "INSERT INTO products (product_name, product_details, product_retail_price) VALUES (:product_name, :product_details, :product_retail_price)";
+        $sql = "INSERT INTO employees (product,product_details , price) VALUES (:product, :product_details, :price)";
  
         if($stmt = $pdo->prepare($sql)){
             // Bind variables to the prepared statement as parameters
-            $stmt->bindParam(":product_name", $param_product_name);
+            $stmt->bindParam(":product", $param_product);
             $stmt->bindParam(":product_details", $param_product_details);
-            $stmt->bindParam(":product_retail_price", $param_product_retail_price);
+            $stmt->bindParam(":price", $param_price);
             
             // Set parameters
-            $param_product_name = $product_name;
+            $param_product = $product;
             $param_product_details = $product_details;
-            $param_product_retail_price = $product_retail_price;
+            $param_price = $price;
             
             // Attempt to execute the prepared statement
             if($stmt->execute()){
@@ -93,19 +93,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <p>Please fill this form and submit to add employee record to the database.</p>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group">
-                            <label>Product Name</label>
-                            <input type="text" name="product_name" class="form-control <?php echo (!empty($product_name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $product_name; ?>">
-                            <span class="invalid-feedback"><?php echo $product_name_err;?></span>
+                            <label>product</label>
+                            <input type="text" name="product" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $product; ?>">
+                            <span class="invalid-feedback"><?php echo $product_err;?></span>
                         </div>
                         <div class="form-group">
-                            <label>Product Details</label>
+                        <label>Product details</label>
                             <textarea name="product_details" class="form-control <?php echo (!empty($product_details_err)) ? 'is-invalid' : ''; ?>"><?php echo $product_details; ?></textarea>
-                            <span class="invalid-feedback"><?php echo $product_details_err;?></span>
+                            <span class="invalid-feedback"><?php echo $product_details;?></span>
                         </div>
                         <div class="form-group">
-                            <label>Retail Price</label>
-                            <input type="text" name="product_retail_price" class="form-control <?php echo (!empty($product_retail_price_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $product_retail_price; ?>">
-                            <span class="invalid-feedback"><?php echo $product_retail_price_err;?></span>
+                            <label>Price</label>
+                            <input type="text" name="price" class="form-control <?php echo (!empty($price_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $price; ?>">
+                            <span class="invalid-feedback"><?php echo $price_err;?></span>
                         </div>
                         <input type="submit" class="btn btn-primary" value="Submit">
                         <a href="../index.php" class="btn btn-secondary ml-2">Cancel</a>
