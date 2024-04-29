@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2024 at 08:50 AM
+-- Generation Time: Apr 29, 2024 at 09:02 AM
 -- Server version: 10.11.7-MariaDB-cll-lve
 -- PHP Version: 7.2.34
 
@@ -24,42 +24,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Table structure for table `employees`
 --
 
-CREATE TABLE `products` (
-  `product_id` int(11) NOT NULL,
-  `product_name` varchar(100) NOT NULL,
+CREATE TABLE `employees` (
+  `id` int(11) NOT NULL,
+  `product` varchar(100) NOT NULL,
   `product_details` varchar(255) NOT NULL,
-  `product_retail_price` int(10) NOT NULL
+  `price` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `products`
+-- Dumping data for table `employees`
 --
 
-INSERT INTO `products` (`product_id`, `product_name`, `product_details`, `product_retail_price`) VALUES
-(1, 'Proben', 'Fried chicken proventriculus', 5);
+INSERT INTO `employees` (`id`, `product`, `product_details`, `price`) VALUES
+(1, 'AD', 'EQE', 212);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `products`
+-- Indexes for table `employees`
 --
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`product_id`);
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT for table `employees`
 --
-ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `employees`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
