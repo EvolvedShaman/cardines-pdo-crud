@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2024 at 09:34 AM
+-- Generation Time: May 20, 2024 at 08:49 AM
 -- Server version: 10.11.7-MariaDB-cll-lve
 -- PHP Version: 7.2.34
 
@@ -24,22 +24,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Table structure for table `employees`
 --
 
-CREATE TABLE `products` (
-  `product_id` int(11) NOT NULL,
-  `product_name` varchar(100) NOT NULL,
+CREATE TABLE `employees` (
+  `id` int(11) NOT NULL,
+  `product` varchar(100) NOT NULL,
   `product_details` varchar(255) NOT NULL,
-  `product_retail_price` int(10) NOT NULL
+  `price` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `products`
+-- Dumping data for table `employees`
 --
 
-INSERT INTO `products` (`product_id`, `product_name`, `product_details`, `product_retail_price`) VALUES
-(1, 'Proben', 'Fried chicken proventriculus', 5);
+INSERT INTO `employees` (`id`, `product`, `product_details`, `price`) VALUES
+(1, 'AD', 'EQE', 212);
 
 -- --------------------------------------------------------
 
@@ -52,25 +52,17 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `created_at` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
-(1, 'oppo', '$2y$10$9YQzk2bAlzmBb9T67sJCTuRYxbs6VT6CVqn5qdDe/CVfg/CjME5Z6', '2024-05-11 00:03:30'),
-(2, 'opopako', '$2y$10$ETd6tCwO2cfdTEQM/ygX5u3A9HllGzpsBZegC22qhk8hP3h6xfCsS', '2024-05-11 00:04:11');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `products`
+-- Indexes for table `employees`
 --
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`product_id`);
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -84,16 +76,16 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT for table `employees`
 --
-ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `employees`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
