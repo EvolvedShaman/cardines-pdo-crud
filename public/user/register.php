@@ -100,19 +100,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Sign Up</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-       body {
+
+        body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0; /* Light gray background */
+            background-image: url('https://wallpapers.com/images/high/nike-air-jordan-6d6nnlj4a2fwchdl.webp'); /* Replace 'your-background-image.jpg' with your image path */
+            background-size: cover;
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
         .wrapper {
             width: 360px;
             padding: 20px;
-            background-color: #fff; /* White background */
+            background-color: rgba(255, 255, 255, 0.8); /* White background with transparency */
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
         }
@@ -153,8 +158,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         .alert {
             margin-top: 20px;
         }
-        
-
     </style>
 </head>
 <body>
