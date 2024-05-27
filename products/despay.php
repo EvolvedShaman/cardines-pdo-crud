@@ -385,6 +385,7 @@ h1 {
         <img class="slides fade" src="../media/shoes2.webp" alt="Image 2">
         <img class="slides fade" src="../media/shoes3.webp" alt="Image 3">
         <img class="slides fade" src="../media/shoes4.webp" alt="Image 4">
+        <img class="slides fade" src="../media/shoes5.webp" alt="Image 5">
         <div class="navigation">
             <button onclick="prevSlide()">Prev</button>
             <button onclick="nextSlide()">Next</button>
