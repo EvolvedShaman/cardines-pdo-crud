@@ -93,22 +93,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0; /* Light gray background */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; /* Add this to remove default margin */
+    background-image: url('https://wallpapers.com/images/high/nike-logo-0h5zkyopccr5lmpt.webp'); /* Replace 'background.jpg' with your image file */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background */
+}
 
-        .wrapper {
-            width: 360px;
-            padding: 20px;
-            background-color: #fff; /* White background */
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
-        }
+.wrapper {
+    width: 360px;
+    padding: 20px;
+    background-image: url('background.jpg'); /* Replace 'background.jpg' with your image file */
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
 
         .wrapper h2 {
             text-align: center;
@@ -144,7 +148,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
 
         .alert {
-            margin-top: 20px;
+            margin-top: 20px; 
         }
     </style>
 </head>

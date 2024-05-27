@@ -12,7 +12,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <title>Welcome</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -20,7 +20,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
-        body{ font: 14px sans-serif; text-align: center; }
+        body {
+            font: 14px sans-serif;
+            text-align: center;
+            /* Add background display */
+            background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('https://i.pinimg.com/564x/02/67/af/0267af5280329e8bf33121c5353e63f7.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
         .wrapper{
             width: 600px;
             margin: 0 auto;
@@ -31,7 +39,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </style>
 </head>
 <body>
-    <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
+    <h1 class="my-5">Hello My Friend, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b> Welcome to Thrift Shop. </h1>
     <p>
         <a href="./reset.php" class="btn btn-warning">Reset Your Password</a>
         <a href="./logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
