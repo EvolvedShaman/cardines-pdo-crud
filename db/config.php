@@ -4,7 +4,7 @@ server with default setting (user 'root' with no password) */
 define('DB_SERVER', 'localhost');
 define('DB_NAME', 'u593341949_db_cardines');
 define('DB_USERNAME', 'u593341949_dev_cardines');
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', '20191772Cardines');
 
 
 try{
