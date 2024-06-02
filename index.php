@@ -10,12 +10,13 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Genshin', sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
         }
 
         .hero-section {
             height: 100vh;
-            background: url('https://wallpapercave.com/wp/wp9999057.jpg') no-repeat center center fixed;
+            background: url('https://shoplineimg.com/5fb51d7f25f3d00031ddb131/6219d5278fba740026ed7203/800x.jpeg') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             justify-content: center;
@@ -30,14 +31,19 @@
             border-radius: 15px;
         }
 
-        .container {
-    padding: 100px; /* Increased padding */
-    border-radius: 15px;
-    margin-top: 100px; /* Increased margin */
-    background: url('https://wallpapercave.com/wp/wp9999090.jpg') no-repeat center center fixed;
-    background-size: cover;
-}
+        .content-section {
+            background: url('https://images.unsplash.com/photo-1534126511673-b6899657816a') no-repeat center center fixed;
+            background-size: cover;
+            padding: 50px 0;
+        }
 
+        .container {
+            padding: 50px;
+            margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
         .navbar {
             background-color: rgba(0, 0, 0, 0.7);
@@ -45,7 +51,7 @@
 
         .navbar-brand span {
             color: white;
-            font-family: 'Genshin', sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
         .form-inline .form-control {
@@ -76,7 +82,7 @@
             overflow: hidden;
             transition: transform 0.3s ease;
             position: relative;
-            background-color: rgba(255, 255, 255, 0.9); /* Add background color for each card */
+            background-color: rgba(255, 255, 255, 0.9);
         }
 
         .card:hover {
@@ -89,8 +95,8 @@
 
         .card-img-top {
             width: 100%;
-            height: 200px; /* Fixed height for all images */
-            object-fit: cover; /* Ensures the image covers the area */
+            height: 200px;
+            object-fit: cover;
             transition: transform 0.3s ease;
         }
 
@@ -139,7 +145,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">
-            <img src="https://www.pngmart.com/files/23/Genshin-Impact-Logo-PNG-Photo.png" width="150" height="30" class="d-inline-block align-top" alt="Softball Logo">
+            <img src="https://pngfre.com/wp-content/uploads/nike-logo-20-1-1024x1024.png" width="130" height="70" class="d-inline-block align-top" alt="">
         </a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -150,11 +156,19 @@
         </div>
     </nav>
 
-  
-
-    <div class="container">
-        <div id="productsDisplay" class="card-grid"></div>
+    <div class="hero-section">
+        <div class="hero-text">
+            <h1>Welcome to Our Shop</h1>
+            <p>Discover our exclusive products</p>
+        </div>
     </div>
+
+    <div class="content-section">
+        <div class="container">
+            <div id="productsDisplay" class="card-grid"></div>
+        </div>
+    </div>
+    
     <div id="cartContainer"></div>
 
     <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">

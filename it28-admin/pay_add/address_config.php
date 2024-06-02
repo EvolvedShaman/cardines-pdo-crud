@@ -1,10 +1,10 @@
 <?php
 // Database configuration using PDO
-/*
+
 $servername = "localhost";
-$username = "u593341949_dev_cabana";
-$password = "20221190Cabana";
-$database = "u593341949_db_cabana";*/
+$username = "u593341949_dev_cardines";
+$password = "20191772Cardines";
+$database = "u593341949_db_cardines";
 
 
 $servername = "localhost";

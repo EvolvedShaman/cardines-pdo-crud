@@ -5,173 +5,209 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Success</title>
     <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes slideBackground {
+            from {
+                background-position: 0% 50%;
+            }
+            to {
+                background-position: 100% 50%;
+            }
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            background-size: 400% 400%;
+            animation: slideBackground 10s ease infinite;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            color: #fff;
         }
 
         .container {
             text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 20%;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+            max-width: 600px;
+            margin: 0 20px;
         }
 
         h2 {
-            color: #333;
+            font-size: 2.5em;
             margin-bottom: 20px;
+            animation: slideIn 1s ease-in-out;
         }
 
         p {
-            color: #555;
-            margin-bottom: 20px;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            animation: slideIn 1.5s ease-in-out;
         }
 
         a {
             text-decoration: none;
-            color: #007bff;
+            color: #ffd700;
             font-weight: bold;
+            padding: 10px 30px;
+            border: 2px solid #ffd700;
+            border-radius: 30px;
+            animation: bounce 2s infinite;
+            transition: background-color 0.3s, color 0.3s;
+            display: inline-block;
         }
 
         a:hover {
-            color: #0056b3;
+            background-color: #ffd700;
+            color: #333;
         }
-        html, body {
-	position: relative;
-	width: 100vw;
-	height: 100vh;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-}
 
-body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 0 5em;
-	box-sizing: border-box;
-	
-	font-family: "Lato", verdana, sans-serif;
-}
+        .horizontal.timeline {
+            display: flex;
+            position: relative;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin-top: 50px;
+        }
 
-.horizontal.timeline {
-	display: flex;
-	position: relative;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	
-	&:before {
-		content: '';
-		display: block;
-		position: absolute;
-		
-		width: 100%;
-		height: .2em;
-		background-color: lighten(#000, 95%);
-	}
-	
-	.line {
-		display: block;
-		position: absolute;
-		
-		width: 50%;
-		height: .2em;
-		background-color: #8897ec;
-	}
-	
-	.steps {
-		display: flex;
-		position: relative;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		width: 100%;
-		
-		.step {
-			display: block;
-			position: relative;
-			bottom: calc(100% + 1em);
-			padding: .33em;
-			margin: 0 2em;
-			box-sizing: content-box;
+        .horizontal.timeline:before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.2);
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
 
-			color: #8897ec;
-			background-color: currentColor;
-			border: .25em solid white;
-			border-radius: 50%;
-			z-index: 500;
+        .line {
+            display: block;
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background-color: #ffd700;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            z-index: 1;
+            animation: slideIn 2s ease-in-out;
+        }
 
-			&:first-child {
-				margin-left: 0;
-			}
+        .steps {
+            display: flex;
+            position: relative;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
 
-			&:last-child {
-				margin-right: 0;
-				color: #71CB35;
-			}
+        .step {
+            display: block;
+            position: relative;
+            padding: 10px;
+            margin: 0 10px;
+            box-sizing: content-box;
+            color: #ffd700;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            z-index: 2;
+            transition: transform 0.3s, background-color 0.3s, border 0.3s;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            animation: bounce 2s infinite;
+        }
 
-			span {
-				position: absolute;
+        .step:first-child {
+            margin-left: 0;
+        }
 
-				top: calc(100% + 1em);
-				left: 50%;
-				transform: translateX(-50%);
-				white-space: nowrap;
-				color: #000;
-				opacity: .4;
-			}
+        .step:last-child {
+            margin-right: 0;
+        }
 
-			&.current {
-				&:before {
-					content: '';
-					display: block;
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
+        .step span {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            color: rgba(255, 255, 255, 0.7);
+        }
 
-					padding: 1em;
-					background-color: currentColor;
-					border-radius: 50%;
-					opacity: 0;
-					z-index: -1;
+        .step.current {
+            animation: pulse 2s infinite;
+            background-color: #ffd700;
+            border: 4px solid #ffd700;
+        }
 
-					animation-name: animation-timeline-current;
-					animation-duration: 2s;
-					animation-iteration-count: infinite;
-					animation-timing-function: ease-out;
-				}
+        .step:hover {
+            transform: scale(1.2);
+            background-color: #ffd700;
+            border: 4px solid #ffd700;
+        }
 
-				span {
-					opacity: .8;
-				}
-			}
-		}	
-	}
-}
-
-@keyframes animation-timeline-current {
-	from {
-		transform: translate(-50%, -50%) scale(0);
-		opacity: 1;
-	}
-	to {
-		transform: translate(-50%, -50%) scale(1);
-		opacity: 0;
-	}
-}
+        .step.current span {
+            color: #ffd700;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -198,7 +234,6 @@ body {
                 <span>Delivered</span>
             </div>
         </div>
-        
         <div class="line"></div>
     </div>
 </body>

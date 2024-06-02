@@ -44,17 +44,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            background-image: url('https://wallpapercave.com/wp/wp7648585.jpg'); /* Add your background image URL here */
+            background-image: url('https://getwallpapers.com/wallpaper/full/b/7/1/1311851-download-free-nike-basketball-shoes-wallpaper-2880x1800-4k.jpg'); /* Add your background image URL here */
             background-size: cover;
             background-position: center;
         }
 
         .container {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
+            max-width: 350px;
+            margin: 35px auto;
+            padding: 15px;
+            background-color: #999;
+            border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 

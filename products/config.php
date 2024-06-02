@@ -1,9 +1,9 @@
 <?php
-/*
+
 $host = 'localhost';
-$dbname = 'u593341949_db_cabana';
-$username = 'u593341949_dev_cabana';
-$password = '20221190Cabana';*/
+$dbname = 'u593341949_db_cardines';
+$username = 'u593341949_dev_cardines';
+$password = '20191772Cardines';
 
 $host = 'localhost';
 $dbname = 'cardines';

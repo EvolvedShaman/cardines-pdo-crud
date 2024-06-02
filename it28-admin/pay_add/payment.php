@@ -51,7 +51,7 @@ $conn->close();
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            background: url('https://www.pockettactics.com/wp-content/uploads/2021/02/genshin-impact-wallpaper-4.jpg') no-repeat center center fixed;
+            background: url('https://media.gq.com/photos/5ace5a393809a7510346b95d/16:9/w_2560%2Cc_limit/nike-art-of-a-champion-pack.jpeg') no-repeat center center fixed;
             background-size: cover;
         }
 
