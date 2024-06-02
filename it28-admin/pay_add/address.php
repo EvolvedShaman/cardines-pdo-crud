@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            background-image: url('https://myindianthings.com/cdn/shop/products/basketball_jordan_wallpaper_9b6c533f-2c5f-4854-a10a-3addb167e833_1024x.jpg?v=1701710816'); /* Add your background image URL here */
+            background-image: url('https://wallpapercave.com/wp/wp7648585.jpg'); /* Add your background image URL here */
             background-size: cover;
             background-position: center;
         }

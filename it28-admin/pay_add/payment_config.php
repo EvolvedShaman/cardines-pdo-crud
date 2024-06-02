@@ -1,16 +1,16 @@
 <?php
 // Database configuration
-
-$servername = "localhost";
-$username = "u593341949_dev_cardines";
-$password = "20191772Cardines";
-$database = "u593341949_db_cardines";
-
 /*
+$servername = "localhost";
+$username = "u593341949_dev_cabana";
+$password = "20221190Cabana";
+$database = "u593341949_db_cabana";*/
+
+
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "cardz";*/
+$database = "cardines";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
 
