@@ -7,168 +7,199 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
-            background-image: url('https://wallpapercave.com/wp/wp7486872.jpg'); /* Add your background image URL here */
-            background-size: cover;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         .container {
-            max-width: 800px; /* Adjust the max-width as needed */
-            margin: 50px auto;
-            padding: 20px;
+            text-align: center;
             background-color: #fff;
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            position: fixed;
+            top: 20%;
         }
 
         h2 {
-            color: #007bff;
-        }
-
-        p {
-            font-size: 16px;
+            color: #333;
             margin-bottom: 20px;
         }
 
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
+        p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        a {
             text-decoration: none;
-            transition: background-color 0.3s ease;
+            color: #007bff;
+            font-weight: bold;
         }
 
-        .button:hover {
-            background-color: #0056b3;
+        a:hover {
+            color: #0056b3;
         }
-        body {
-    background: #f0f0f0;
-    font-family: sans-serif;
-    padding-top: 30px;
-}
-ul.timeline {
-    position: relative;
-    list-style-type: none;
-    padding-left: 180px;
-}
-ul.timeline:before {
-    position: absolute;
-    display: block;
-    left: 136px;
-    width: 8px;
-    height: 100%;
-    border-radius: 4px;
-    background-color: #07b;
-    content: ' ';
-}
-ul.timeline .event {
-    position: relative;
-    padding: 16px;
-    background: white;
-    border-radius: 2px;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
-    padding: 16px;
-    margin-bottom: 30px;
-}
-ul.timeline .event:before {
-    display: block;
-    position: absolute;
-    top: 30px;
-    left: -55px;
-    width: 30px;
-    height: 30px;
-    border: 6px solid #07b;
-    border-radius: 50%;
-    background-color: white;
-    box-shadow: 0 0 4px -1px rgba(0, 0, 0, 0.6);
-    content: ' ';
-}
-ul.timeline h3 {
-    font-size: 1.5em;
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-ul.timeline .time {
-    position: absolute;
-    display: block;
-    width: 120px;
-    top: 35px;
-    left: -179px;
-    font-size: 0.9em;
-    text-align: right;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-ul.timeline .time > .glyphicon-time {
-    top: 2px;
-}
-ul.timeline .left-arrow:before {
-    position: absolute;
-    top: 30px;
-    left: -15px;
-    display: inline-block;
-    border-top: 15px solid transparent;
-    border-right: 15px solid #ddd;
-    border-left: 0 solid #ddd;
-    border-bottom: 15px solid transparent;
-    content: ' ';
-}
-ul.timeline .left-arrow:after {
-    position: absolute;
-    top: 30px;
-    left: -14px;
-    display: inline-block;
-    border-top: 15px solid transparent;
-    border-right: 15px solid #fff;
-    border-left: 0 solid #fff;
-    border-bottom: 15px solid transparent;
-    content: ' ';
+        html, body {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
 }
 
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 5em;
+	box-sizing: border-box;
+	
+	font-family: "Lato", verdana, sans-serif;
+}
+
+.horizontal.timeline {
+	display: flex;
+	position: relative;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		
+		width: 100%;
+		height: .2em;
+		background-color: lighten(#000, 95%);
+	}
+	
+	.line {
+		display: block;
+		position: absolute;
+		
+		width: 50%;
+		height: .2em;
+		background-color: #8897ec;
+	}
+	
+	.steps {
+		display: flex;
+		position: relative;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		
+		.step {
+			display: block;
+			position: relative;
+			bottom: calc(100% + 1em);
+			padding: .33em;
+			margin: 0 2em;
+			box-sizing: content-box;
+
+			color: #8897ec;
+			background-color: currentColor;
+			border: .25em solid white;
+			border-radius: 50%;
+			z-index: 500;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+				color: #71CB35;
+			}
+
+			span {
+				position: absolute;
+
+				top: calc(100% + 1em);
+				left: 50%;
+				transform: translateX(-50%);
+				white-space: nowrap;
+				color: #000;
+				opacity: .4;
+			}
+
+			&.current {
+				&:before {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+
+					padding: 1em;
+					background-color: currentColor;
+					border-radius: 50%;
+					opacity: 0;
+					z-index: -1;
+
+					animation-name: animation-timeline-current;
+					animation-duration: 2s;
+					animation-iteration-count: infinite;
+					animation-timing-function: ease-out;
+				}
+
+				span {
+					opacity: .8;
+				}
+			}
+		}	
+	}
+}
+
+@keyframes animation-timeline-current {
+	from {
+		transform: translate(-50%, -50%) scale(0);
+		opacity: 1;
+	}
+	to {
+		transform: translate(-50%, -50%) scale(1);
+		opacity: 0;
+	}
+}
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Thank You for Your Order!</h2>
+        <h2>Success!</h2>
         <p>Your address has been recorded successfully.</p>
-        <a href="../../index.php" class="button">Back to Products</a>
+        <a href="../../index.php">Go back to home</a>
     </div>
-	<div class="container">
-        <ul class="timeline">
-          <li class="event">
-            <div class="left-arrow"></div>
-            <div class="time">9 April, 2020<br> 11:34 AM <span class="glyphicon glyphicon-time"></span></div>
-            <h3>Payment Successful</h3>
-            <div class="description"><p>Thank you for shopping with us. Your Payment using KBZ Pay was successful</p></div>
-          </li>
-          <li class="event">
-            <div class="left-arrow"></div>
-            <div class="time">9 April, 2020 <br> 11:37 AM <span class="glyphicon glyphicon-time"></span></div>
-            <h3>Order Verified</h3>
-            <div class="description"><p>Your order has been successfully verified.
-      </p></div>
-          </li>
-           <li class="event">
-            <div class="left-arrow"></div>
-            <div class="time">10 April, 2020 <br> 09:11 AM <span class="glyphicon glyphicon-time"></span></div>
-            <h3>Order Handed over to Logistics Partner</h3>
-            <div class="description"><p>Your order has been packed and handed over to a Logistics Partner.
-      </p></div>
-          </li>
-           <li class="event">
-            <div class="left-arrow"></div>
-            <div class="time">10 April, 2020 <br> 02:22 PM <span class="glyphicon glyphicon-time"></span></div>
-            <h3>Order Shipped</h3>
-            <div class="description"><p>Your order has been shipped using Myanmar Post. You can track this package using the OrderID at <a href="https://myanmarpost.com/"> https://myanmarpost.com</a>
-      </p></div>
-          </li>
-        </ul>
-      </div>
+    <div class="horizontal timeline">
+        <div class="steps">
+            <div class="step">
+                <span>To be prepared</span>
+            </div>
+            <div class="step">
+                <span>Sent to logistics</span>
+            </div>
+            <div class="step current">
+                <span>In preparation</span>
+            </div>
+            <div class="step">
+                <span>Shipped</span>
+            </div>
+            <div class="step">
+                <span>Delivered</span>
+            </div>
+        </div>
+        
+        <div class="line"></div>
+    </div>
 </body>
 </html>
