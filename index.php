@@ -15,7 +15,7 @@
 
         .hero-section {
             height: 100vh;
-            background: url('https://wallpapercave.com/wp/wp9999057.jpg') no-repeat center center fixed;
+            background: url('https://images6.alphacoders.com/688/688493.jpg') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             justify-content: center;
@@ -34,7 +34,7 @@
     padding: 100px; /* Increased padding */
     border-radius: 15px;
     margin-top: 100px; /* Increased margin */
-    background: url('https://wallpapercave.com/wp/wp9999090.jpg') no-repeat center center fixed;
+    background: url('https://wallpapercave.com/wp/wp2928366.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -139,7 +139,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">
-            <img src="https://www.pngmart.com/files/23/Genshin-Impact-Logo-PNG-Photo.png" width="150" height="30" class="d-inline-block align-top" alt="Softball Logo">
+            <img src="https://wallpaper.dog/large/5462831.jpg" width="90" height="50" class="" alt="">
         </a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -152,8 +152,8 @@
 
     <div class="hero-section">
         <div class="hero-text">
-            <h1>Welcome to Genshin Impact Swords</h1>
-            <p>Explore our exclusive collection of swords.</p>
+            <h1>Air Jordan is a line of basketball shoes produced by Nike, Inc.</h1>
+            <p>Related apparel and accessories are marketed under the Jordan Brand.</p>
         </div>
     </div>
 
