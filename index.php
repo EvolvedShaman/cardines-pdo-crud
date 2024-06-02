@@ -1,211 +1,239 @@
-<?php
-// Initialize the session
-session_start();
- 
-// Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: ./products/despay.php");
-    exit;
-}
- 
-// Include config file
-require_once "./db/config.php";
- 
-// Define variables and initialize with empty values
-$username = $password = "";
-$username_err = $password_err = $login_err = "";
- 
-// Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    // Check if username is empty
-    if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter username.";
-    } else{
-        $username = trim($_POST["username"]);
-    }
-    
-    // Check if password is empty
-    if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter your password.";
-    } else{
-        $password = trim($_POST["password"]);
-    }
-    
-    // Validate credentials
-    if(empty($username_err) && empty($password_err)){
-        // Prepare a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = :username";
-        
-        if($stmt = $pdo->prepare($sql)){
-            // Bind variables to the prepared statement as parameters
-            $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
-            
-            // Set parameters
-            $param_username = trim($_POST["username"]);
-            
-            // Attempt to execute the prepared statement
-            if($stmt->execute()){
-                // Check if username exists, if yes then verify password
-                if($stmt->rowCount() == 1){
-                    if($row = $stmt->fetch()){
-                        $id = $row["id"];
-                        $username = $row["username"];
-                        $hashed_password = $row["password"];
-                        if(password_verify($password, $hashed_password)){
-                            // Password is correct, so start a new session
-                            session_start();
-                            
-                            // Store data in session variables
-                            $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
-                            
-                            // Redirect user to welcome page
-                           // header("location: ./products/board.php");
-                           header("location: ./products/despay.php");
-                        } else{
-                            // Password is not valid, display a generic error message
-                            $login_err = "Invalid username or password.";
-                        }
-                    }
-                } else{
-                    // Username doesn't exist, display a generic error message
-                    $login_err = "Invalid username or password.";
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            unset($stmt);
-        }
-    }
-    
-    // Close connection
-    unset($pdo);
-}
-?>
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products List</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-           body {
-    font-family: Arial, sans-serif;
-    background-image: url('./media/shoes4.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Genshin', sans-serif;
+        }
 
-.wrapper {
-    width: 360px;
-    padding: 30px;
-    background-color: #fff; /* White background */
-    border-radius: 20px;
-    box-shadow: 0px 0px 30px rgba(255, 69, 0, 0.7), 0 0 0 4px black; /* Orange shadow and black border */
-    background-image: url('./media/shoes2.webp'); /* Background image */
-    background-size: cover;
-    background-position: center;
-}
-
-
-        .wrapper h2 {
+        .hero-section {
+            height: 100vh;
+            background: url('https://wallpapercave.com/wp/wp9999057.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
             text-align: center;
-            margin-bottom: 20px;
-            color: white; /* Hard black text */
-            font-weight: bold; /* Bold font */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow */
-            text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
         }
 
-        .form-group {
-            margin-bottom: 20px;
+        .hero-text {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 15px;
         }
 
-        label {
-            color: white; /* Hard black text */
-            font-weight: bold; /* Bold font */
-            text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+        .container {
+    padding: 100px; /* Increased padding */
+    border-radius: 15px;
+    margin-top: 100px; /* Increased margin */
+    background: url('https://wallpapercave.com/wp/wp9999090.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
         }
 
-        .form-control {
-            border-color: orange; /* Light gray border */
-            font-weight: bold; /* Bold font */
+        .navbar-brand span {
+            color: white;
+            font-family: 'Genshin', sans-serif;
         }
 
-        .form-control:focus {
-            border-color: orange; /* Blue border when focused */
-            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); /* Focus effect */
+        .form-inline .form-control {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
         }
 
-        .btn-primary {
-            background-color: orange; /* Blue button */
-            border-color: black;
-            font-weight: bold; /* Bold font */
+        .form-inline .btn-outline-success {
+            color: white;
+            border-color: white;
         }
 
-        .btn-primary:hover {
-            background-color: orange; /* Darker blue on hover */
+        .form-inline .btn-outline-success:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.9); /* Add background color for each card */
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-title, .card-text, .price {
+            color: black;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 200px; /* Fixed height for all images */
+            object-fit: cover; /* Ensures the image covers the area */
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-img-top {
+            transform: scale(1.1);
+        }
+
+        .btn-success {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-success:hover {
+            background-color: #0056b3;
             border-color: #0056b3;
         }
 
-        .alert {
-            margin-top: 20px;
+        #cartContainer {
+            position: fixed;
+            top: 4em;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 999;
         }
-        p {
-    font-weight: bold;
-    color: white;
-    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
-}
 
+        .modal-header, .modal-footer {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
 
-        a {
-             font-weight: bold;
-             color: orange;
-             text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
-        } 
-        
+        .modal-body {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
 
+        .modal-title {
+            color: black;
+        }
+
+        .modal-body p {
+            color: black;
+        }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <h2>Login</h2>
-        <p>Please fill in your credentials to login.</p>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://www.pngmart.com/files/23/Genshin-Impact-Logo-PNG-Photo.png" width="150" height="30" class="d-inline-block align-top" alt="Softball Logo">
+        </a>
 
-        <?php 
-        if(!empty($login_err)){
-            echo '<div class="alert alert-danger">' . $login_err . '</div>';
-        }        
-        ?>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="form-inline my-2 my-lg-0 ml-auto">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
 
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
-                <span class="invalid-feedback"><?php echo $username_err; ?></span>
-            </div>    
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
-                <span class="invalid-feedback"><?php echo $password_err; ?></span>
-            </div>
-            <div class="form-group">
-    <input type="submit" class="btn btn-primary" value="Login" style="color: black;">
-</div>
-
-            <p>Don't have an account? <a href="./public/user/register.php">Sign up now</a>.</p>
-        </form>
+    <div class="hero-section">
+        <div class="hero-text">
+            <h1>Welcome to Genshin Impact Swords</h1>
+            <p>Explore our exclusive collection of swords.</p>
+        </div>
     </div>
+
+    <div class="container">
+        <div id="productsDisplay" class="card-grid"></div>
+    </div>
+    <div id="cartContainer"></div>
+
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Product Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody"></div>
+                <div class="modal-footer">
+                    <a id="paymentLink" class="btn btn-primary" href="#">Proceed to Payment</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        fetch('./products/products-api.php')
+            .then(response => response.json())
+            .then(data => {
+                const productsContainer = document.getElementById('productsDisplay');
+                data.forEach(product => {
+                    const cardHTML = `
+                    <div class="card">
+                        <img class="card-img-top" src="${product.img}" alt="${product.title}">
+                        <div class="card-body">
+                            <h5 class="card-title">${product.title}</h5>
+                            <span class="price">Price: ₱${product.rrp}</span>
+                            <p class="card-text">${product.description}</p>
+                            <p class="card-text">Quantity: ${product.quantity}</p>
+                            <button class="btn btn-success" onclick="showProductModal('${product.title}', '${product.rrp}')">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>`;
+                    productsContainer.innerHTML += cardHTML;
+                });
+            })
+            .catch(error => console.error('Error:', error));
+
+        function showProductModal(title, price) {
+            document.getElementById('modalBody').innerHTML = `
+                <p>Name: ${title}</p>
+                <p>Price: ₱${price}</p>`;
+            document.getElementById('paymentLink').href = `it28-admin/pay_add/payment.php?productName=${encodeURIComponent(title)}&price=${encodeURIComponent(price)}`;
+            $('#productModal').modal('show');
+        }
+
+        let cart = {};
+
+        function addToCart(productId) {
+            if (cart[productId]) {
+                cart[productId]++;
+            } else {
+                cart[productId] = 1;
+            }
+            displayCart();
+        }
+
+        function displayCart() {
+            const cartContainer = document.getElementById('cartContainer');
+            let cartHTML = '<h3>Cart</h3>';
+            for (const [productId, quantity] of Object.entries(cart)) {
+                cartHTML += `<p>Product ID: ${productId}, Quantity: ${quantity}</p>`;
+            }
+            cartContainer.innerHTML = cartHTML;
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

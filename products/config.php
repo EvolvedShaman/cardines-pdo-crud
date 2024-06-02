@@ -3,7 +3,7 @@
 $host = 'localhost';
 $dbname = 'u593341949_db_cardines';
 $username = 'u593341949_dev_cardines';
-$password = '20221190Cardines';
+$password = '20191772Cardines';
 /*
 $host = 'localhost';
 $dbname = 'cardines';
