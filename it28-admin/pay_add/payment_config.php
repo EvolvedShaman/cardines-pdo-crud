@@ -10,7 +10,7 @@ $database = "u593341949_db_cardines";
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "cardines";*/
+$database = "cardz";*/
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
 

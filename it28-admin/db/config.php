@@ -1,10 +1,16 @@
 <?php
- Database credentials. Assuming you are running MySQL
+  Database credentials. Assuming you are running MySQL
 server with default setting (user 'root' with no password) 
 define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'u593341949_dev_cardines');
+define('DB_USERNAME', 'u593341949_db_cardines');
 define('DB_PASSWORD', '20191772Cardines');
-define('DB_NAME', 'u593341949_db_cardines');
+define('DB_NAME', 'u593341949_dev_cardines');
+
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_NAME', 'cardz');
+/* Attempt to connect to MySQL database 
 
 try{
     $pdo = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);

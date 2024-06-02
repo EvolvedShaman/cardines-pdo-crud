@@ -10,7 +10,7 @@ $database = "u593341949_db_cardines";
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "cardines"; */
+$database = "cardz"; */
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);

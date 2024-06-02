@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2024 at 09:46 AM
+-- Generation Time: Jun 02, 2024 at 10:50 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -88,15 +88,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `description`, `price`, `rrp`, `quantity`, `img`, `date_added`) VALUES
-(1, 'Summit Shaper', 'Base ATK: 46\r\n2nd Stat: ATK +10.8%', 199, 199, 50, 'https://staticg.sportskeeda.com/editor/2021/10/27cd9-16346723738881-1920.jpg', '2024-05-08 00:00:00'),
-(2, 'Uraku Misugiri', 'Base ATK: 44\r\n2nd Stat: CRIT DMG +19.20%', 249, 249, 30, 'https://zilliongamer.com/uploads/genshin-impact/weapons/uraku-misugiri/uraku.jpg', '2024-05-08 00:00:00'),
-(3, 'Splendor of Waters', 'Base ATK: 44\r\n2nd Stat: CRIT DMG +19.20%', 300, 300, 25, 'https://landofgames.ru/uploads/posts/2023-10/zast.jpg', '2024-05-08 00:00:00'),
-(4, 'Light of Foliar Incision', 'Base ATK: 44\r\n2nd Stat: CRIT DMG +19.20%', 599, 599, 15, 'https://images.gamebanana.com/img/ss/mods/64342a4f008b6.jpg', '2024-05-08 00:00:00'),
-(6, 'Key of Khaj-Nisut', 'Base ATK: 44\r\n2nd Stat: HP +14.4%', 500, 500, 35, 'https://staticg.sportskeeda.com/editor/2022/10/5b8a9-16654955338547-1920.jpg?w=1200', '2024-05-27 17:30:38'),
-(7, 'Haran Geppaku Futsu', 'Base ATK: 46\r\n2nd Stat: CRIT Rate +7.2%', 799, 799, 8, 'https://i.etsystatic.com/22660927/r/il/a4fd91/3804723266/il_794xN.3804723266_fxcv.jpg', '2024-05-29 08:50:13'),
-(8, 'Mistsplitter Reforged', 'Base ATK: 48\r\n2nd Stat: CRIT DMG +9.6 %', 800, 800, 23, 'https://staticg.sportskeeda.com/editor/2021/07/50d3f-16263709778740-800.jpg', '2024-05-29 08:51:36'),
-(9, 'Skyward Blade', 'Base ATK: 46\r\n2nd Stat: Energy Recharge +12.0%', 999, 999, 3, 'https://files.cults3d.com/uploaders/26691099/illustration-file/c35d98f6-7c9d-4849-99ca-1c4c8c97b5f4/1-3.jpg', '2024-05-29 08:52:47'),
-(10, 'The Alley Flash', 'Base ATK: 45\r\n2nd Stat: Elemental Mastery +12', 1120, 1120, 4, 'https://upload-os-bbs.mihoyo.com/upload/2021/03/18/59966683/242f5ebcdfac90ce168444229682d45b_8752453067455374847.png', '2024-05-29 08:54:22'),
+(1, 'Air Jordan 1 Mid\r\nWomen\'s Shoes', 'US 9.5, \r\nUS 9\r\n', 7000, 7000, 5, 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b720303b-a097-4a59-98c8-fdedaf369ad6/air-jordan-1-mid-shoes-86f1ZW.png', '2024-05-27 17:30:38'),
+(2, 'Nike Dunk Low\r\nMen\'s Shoes', ' 1 colour', 6122, 6122, 8, 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c960a73e-8565-4cc6-9329-d2449c1944df/dunk-low-shoes-kKHp1z.png', '2024-05-29 08:50:13'),
+(3, 'Nike Air Max Plus\r\nOlder Kids\' Shoes', 'Who says kids don\'t deserve big cushioning? Not us. Get a taste of our legendary Tuned Air technology with the Nike Air Max Plus. From the school playground to your back garden, these comfy kicks are ready to play with breathable mesh fabric up top and a ', 900, 900, 23, 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8def06bd-c9ea-4634-a47b-0bde92ebcbc3/air-max-plus-older-shoes-rQhBJR.png', '2024-05-29 08:51:36'),
+(4, 'Jordan Velocity\r\n', 'Duffle Bag (36L)', 700, 700, 3, 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/7672276b-7249-46cc-88a9-c911afac309c/jordan-velocity-duffle-bag-36l-9PPC9W.png', '2024-05-29 08:52:47'),
+(10, 'Jordan Everyday Essentials\r\n', 'Crew Socks', 200, 200, 4, 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/c02be3c0-da06-438f-87fc-b0c70bea8314/jordan-everyday-essentials-crew-socks-dX03mH.png', '2024-05-29 08:54:22'),
 (11, 'Sapwood Blade', 'Base ATK: 44\r\n2nd Stat: Energy Recharge +6.7%', 1500, 1500, 4, 'https://gamesfuze.b-cdn.net/wp-content/uploads/2022/08/Arakalari-Sword.jpg', '2024-05-29 08:57:29'),
 (12, 'Kagotsurube Isshin', 'Base ATK: 42\r\n2nd Stat: ATK +9.0%', 2210, 2210, 3, 'https://i.etsystatic.com/22660927/r/il/98a749/4165719013/il_1140xN.4165719013_rsbl.jpg', '2024-05-29 08:58:41'),
 (13, 'Cinnabar Spindle', 'Base ATK: 41\r\n2nd Stat: DEF +15.0%', 2599, 2599, 2, 'https://www.ginx.tv/uploads2/Genshin_Impact/cinnabar_spindle/genshin-impact-cinnabar-spindle-weapon-mihoyo.JPG', '2024-05-29 09:01:28');
