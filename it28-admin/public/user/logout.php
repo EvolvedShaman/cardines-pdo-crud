@@ -9,6 +9,6 @@ $_SESSION = array();
 session_destroy();
  
 // Redirect to login page
-header("Location: /baslao-pdo-crud-2/it28-admin/index.php");
+header("Location: /cardines-pdo-crud/it28-admin/index.php");
 exit;
 ?>
